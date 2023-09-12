@@ -16,8 +16,9 @@ const useFetch=(url)=>{
         })
         .then(data=>{
             console.log(data);
-            setData(data);
+            
             setIsPending(false);
+            setData(data);
             setError(null);
         })
         .catch(err=>{
@@ -26,8 +27,8 @@ const useFetch=(url)=>{
             
         })
         },1000);  
-    },[]);
-    return {data, isPending, error}
+    },[url]);
+    return {data, isPending, error};
 }
 
 export default useFetch;
